@@ -8,7 +8,9 @@ import requests
 def recurse(subreddit, hot_list=[], after=None):
     """Recursively returns a list containing titles of all hot articles."""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {"User-Agent": "alu-scripting:api-advanced:v1.0 (by /u/alu_user)"}
+    headers = {
+        "User-Agent": "alu-scripting:api-advanced:v1.0 (by /u/alu_user)"
+    }
     params = {"after": after} if after else {}
     response = requests.get(
         url, headers=headers, params=params, allow_redirects=False
